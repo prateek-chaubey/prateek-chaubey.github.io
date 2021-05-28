@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<div id="search-result" >Hello</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript">
+var k_vdata;
+  
+  $.ajax({
+          type: "POST",
+          url: "https:\/\/yt1s.com\/api\/ajaxSearch\/index",
+          data: {
+              q: "https://m.youtube.com/watch?v=s1-7acBLC2U",
+              vt: 'home',
+          },
+          beforeSend: function() {
+            /*  $("#loader-wrapper").css('display', 'block');
+              $("#search-form").css('display', 'none');
+              $("#search-result").empty();*/
+          },
+          success: function(sdata, textStatus, xhr) {
+              if (xhr.status != 200) {
+                  setTimeout(function() {
+                      window.location.reload();
+                  }, 3000);
+              }
+      
+              if (sdata.status == 'ok') {
+                  if (sdata.p === 'search') {
+                 // alert(sdata.items );
+                 // alert("eye");
+                      //renderListVideo(sdata.items)
+                  } else if (sdata.p === 'convert' && !sdata.mess) {
+                      //renderDetail(sdata);
+                     // alert(sdata);
+                            //alert("eyey");
+                            var vData=sdata;
+                            var jsj='<div class="detail"><div class="thumbnail"><input type="hidden" id="video_id" value="'+vData.vid+'" />\n' +
+                            '<img src="https://i.ytimg.com/vi/'+vData.vid+'/0.jpg" width="100%" height="100%" alt="yt1s youtube downloader">\n' +
+                            '<div class="content"><div class="clearfix">\n' +
+                            '<h3>'+vData.title+'</h3>\n' +
+                            '<p>'+vData.a+'</p>\n' +
+                            '<p class="mag0">'+'</p>';
+                            $("#search-result").html(jsj);
+                  } else if (sdata.p === 'facebook') {
+                      if (sdata.mess) {
+                          alert(sdata.mess);
+                      } else {
+                          k_vdata = sdata;
+                          renderFacebook(sdata);
+                      }
+                  } else if (sdata.mess) {
+                      renderFail(sdata.mess);
+                  }
+                //  $("#loader-wrapper").css('display', 'none');
+                 // load_qc();
+              } else {
+                  setTimeout(function() {
+                      window.location.reload();
+                  }, 3000);
+              }
+          },
+          error: function(data) {
+              setTimeout(function() {
+                  //window.location.reload();
+              }, 3000);
+          }
+      });
+      
+      
+
+</script>
+</body>
+</html>
