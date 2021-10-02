@@ -130,9 +130,10 @@ color:#fff;
 </style>
 <div class="container">
 <h4>YOU'VE BEEN INVITED BY ********* TO JOIN A SERVER </h4>
-<br>
-<div class="h" ><img src="img.png" ><div class="i" > Cody<br><span ><i class="m" ></i>28 members <i class="o" ></i>2 Online</span></div><button>Join </button></div>
+<br/>
+<div class="h" ><img src="img.png" /><div class="i" > Cody<br/><span ><i class="m" ></i>28 members <i class="o" ></i>2 Online</span></div><button>Join </button></div>
 </div>
 </div>
 </foreignObject>
 </svg>
+
