@@ -83,9 +83,9 @@
 				}
 			</style>
 			<div class="container">
-				<h1 >Made with HTML &amp; CSS<br/>not an animated GIF</h1>
+				<h1 id="h1" >Made with HTML &amp; CSS<br/>not an animated GIF</h1>
 				<p>Click to see the source</p>
-			<script> document.body.innerHTML="";</script>
+			<script> document.getElementById("h1").innerHTML="";</script>
 </div>
 		</div>
 	</foreignObject>
